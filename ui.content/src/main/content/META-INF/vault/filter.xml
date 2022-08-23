@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/feed" mode="merge"/>
+    <filter root="/content/feed" mode="merge"/>
+    <filter root="/content/dam/feed/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/feed" mode="merge"/>
+</workspaceFilter>
