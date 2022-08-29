@@ -27,7 +27,6 @@ public class CommonUtils {
      */
     public static String convertPojoToJson(Object object) {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         try {
             return mapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {

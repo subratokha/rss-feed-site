@@ -1,5 +1,8 @@
 package com.subrato.aem.core;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 class Employee {
     private String name;
     private String lastName;
