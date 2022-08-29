@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
+    <filter root="/conf/global/settings/workflow/models/move-livecopy-xf"/>
     <filter root="/conf/feed" mode="merge"/>
     <filter root="/content/feed" mode="merge"/>
     <filter root="/content/dam/feed/asset.jpg" mode="merge"/>

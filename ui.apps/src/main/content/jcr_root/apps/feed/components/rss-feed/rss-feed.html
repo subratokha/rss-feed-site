@@ -1,0 +1,10 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${templates.placeholder @ isEmpty = true}"></sly>
+<div class="cmp-feed" id="cmp-feed" data-sly-use.feedModel="com.subrato.aem.core.models.FeedModel"
+     data-feed-interval="${feedModel.interval}" data-feed-url="${resource.getPath}.json">
+    <div class="container">
+        <div class="row">
+            <div class="feed-content" id="feed-data"></div>
+        </div>
+    </div>
+</div>

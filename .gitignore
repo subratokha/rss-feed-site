@@ -1,0 +1,19 @@
+# IDE
+.idea
+
+# JAVA
+*.iml
+target/
+
+# Proprietary Mac/OSX system file that holds attributes/meta-data about the folder it resides in
+*.DS_Store
+
+.repo
+ui.apps/src/main/content/jcr_root/apps/feed/clientlibs/clientlib-site/css/
+ui.apps/src/main/content/jcr_root/apps/feed/clientlibs/clientlib-site/js/
+
+ui.frontend/dist/
+ui.frontend/node/
+ui.frontend/node_modules/
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rss-feed-site.ui.apps" />
+        <module name="rss-feed-site.ui.config" />
+        <module name="rss-feed-site.ui.content" />
+        <module name="rss-feed-site.it.tests" />
+        <module name="rss-feed-site.all" />
+        <module name="rss-feed-site.core" />
+        <module name="rss-feed-site.ui.apps.structure" />
+        <module name="rss-feed-site.ui.tests" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

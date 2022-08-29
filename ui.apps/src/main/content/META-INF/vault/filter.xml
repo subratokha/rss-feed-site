@@ -3,4 +3,5 @@
     <filter root="/apps/feed/clientlibs"/>
     <filter root="/apps/feed/components"/>
     <filter root="/apps/feed/i18n"/>
+    <filter root="/apps/msm/rolloutconfigs"/>
 </workspaceFilter>
