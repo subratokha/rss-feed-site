@@ -1,10 +1,8 @@
 package com.subrato.aem.core;
 
-import com.day.cq.wcm.api.Page;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.subrato.aem.core.dtos.Rss;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +11,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.Objects;
 
 public class CommonUtils {
 
@@ -30,6 +27,7 @@ public class CommonUtils {
      */
     public static String convertPojoToJson(Object object) {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         try {
             return mapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
@@ -39,17 +37,17 @@ public class CommonUtils {
     }
 
     /**
-     * Convert String XML Representation of RSS Feed to POJO
+     * Convert String XML Representation to POJO
      *
      * @param xml String XML
      * @return RSS Object
      */
-    public static Rss convertXmlToPojo(String xml) {
+    public static <T> T convertXmlToPojo(String xml,final Class<T> clazz) {
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Rss.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(clazz);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             Reader reader = new StringReader(xml);
-            return (Rss) unmarshaller.unmarshal(reader);
+            return (T) unmarshaller.unmarshal(reader);
         } catch (JAXBException e) {
             LOG.error("Error parsing the XML to Objects", e);
         }

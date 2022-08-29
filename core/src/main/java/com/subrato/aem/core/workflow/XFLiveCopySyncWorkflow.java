@@ -19,9 +19,7 @@ import static org.eclipse.jetty.util.URIUtil.SLASH;
 
 @Component(service = WorkflowProcess.class, property = {"process.label = XF LiveCopy Sync Workflow"})
 public class XFLiveCopySyncWorkflow implements WorkflowProcess {
-    /**
-     * Logger
-     */
+
     private static final Logger LOGGER = LoggerFactory.getLogger(XFLiveCopySyncWorkflow.class);
 
     final static String XF_ROOT_PATH = "/content/experience-fragments/feed";
@@ -38,9 +36,11 @@ public class XFLiveCopySyncWorkflow implements WorkflowProcess {
         String payloadPath = workItem.getWorkflowData().getPayload().toString();
         resourceResolver = workflowSession.adaptTo(ResourceResolver.class);
         try {
-            String languages = resourceResolver.getResource(payloadPath + "/jcr:content").getValueMap().get("languageValue", String.class);
-            List<String> targetParentList = getTargetParents(payloadPath, languages);
-            copyLiveCopies(payloadPath, targetParentList);
+            if (resourceResolver != null) {
+                String languages = resourceResolver.getResource(payloadPath + "/jcr:content").getValueMap().get("languageValue", String.class);
+                List<String> targetParentList = getTargetParents(payloadPath, languages);
+                copyLiveCopies(payloadPath, targetParentList);
+            }
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
         } finally {

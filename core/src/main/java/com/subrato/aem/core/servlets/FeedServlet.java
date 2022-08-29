@@ -41,7 +41,7 @@ public class FeedServlet extends SlingSafeMethodsServlet {
         Resource resource = slingRequest.getResource();
         List<Item> fallBackList = getFallBackSettings(resource);
         String listSize = resource.getValueMap().get("listSize", String.class);
-        int size = listSize != null ? Integer.parseInt(listSize) : 10;
+        int size = listSize != null ? Integer.parseInt(listSize) : DEFAULT_FEED_SIZE;
         String response = buildResponse(size, fallBackList);
 
         slingResponse.setContentType("application/json");

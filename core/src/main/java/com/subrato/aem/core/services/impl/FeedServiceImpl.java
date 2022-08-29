@@ -43,7 +43,7 @@ public class FeedServiceImpl implements FeedService {
     @Override
     public Rss getFeed() throws IOException {
         String response = this.feedClient.get(feedUrl);
-        return CommonUtils.convertXmlToPojo(removeBOM(response));
+        return CommonUtils.convertXmlToPojo(removeBOM(response),Rss.class);
     }
 
     private String removeBOM(String input) {
